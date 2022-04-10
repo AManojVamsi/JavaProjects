@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function Student (name,division,yearOfBirth){
+            this.name=name;
+            this.division=division;
+            this.yearOfBirth=yearOfBirth;
+        }
+
+
+        ///create a prototype
+        Student.prototype.calculateAge= function(){
+            var age =2022 -this.yearOfBirth;
+            console.log("Age is: "+age);
+        }
+
+        Student.prototype.display= function(){
+            console.log("Name: "+this.name + " , Division: "+this.division);
+        }
+
+
+        ///object using functional constructor
+        var stu1= new Student("MANOJ","A",1982);
+        var stu2=new Student("DHONI","B",2021);
+
+        console.log(stu1);
+
+        stu1.calculateAge();
+        stu1.display();
+
+        stu2.calculateAge();
+        stu2.display();
+
+    </script>
+    
+</body>
+</html>

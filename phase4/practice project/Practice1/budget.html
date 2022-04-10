@@ -1,0 +1,74 @@
+
+   
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Budgect Planner App</title>
+        <style>
+            body {
+                color: #fff;
+                background: rgb(69, 79, 88);
+                font: 1em "Times new Roman";
+                text-align: center;
+                margin: 200px ;
+                padding-bottom: 100px;
+                }
+            h1{
+                color:burlywood;
+            }
+            .my button{
+                background-color: rgb(7, 10, 14);
+                color: black;
+                text-align: center;
+                font-size: 20px;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 style="text-align: center;">Team Budget Planner</h2>
+        <script>
+            var arr={}
+            function addDetails() {
+                var pno=parseInt(prompt("No of Products : "))
+                while (isNaN(pno)){
+                    alert("Try Again!! Please enter the no of products to be added only in digits")
+                    pno=parseInt(prompt("Please Enter the no of Products to add : "))
+                }
+                for (let i=0;i<pno;i++)
+                {
+                var product=prompt("Enter the Product Name : ")
+                var price=prompt("Enter the Price of "+product+" : ")
+                while (isNaN(price)){
+                    alert("Please Enter Price only in numbers")
+                    price=prompt("Enter the Price of "+product+" : ")
+                }
+                arr[product]=price // arr={product:price}
+                }
+            }
+            function checkDetails() {
+            console.log(arr)
+            console.log(Object.keys(arr)) //load values from array
+            var res=Object.values(arr)
+            var totalBudget=0 // calculate the total budget
+            for (let i=0;i<res.length;i++) {
+                var num=parseFloat(res[i])
+                totalBudget+=num
+            }
+            console.log("Total Budget is : Rs."+totalBudget) // display total budget
+            document.getElementById("display").innerHTML="Total Budget is : Rs. "+totalBudget
+            }
+            const fs = require("fs");
+            fs.writeFile("sample.txt", "Writing content", (err) => {
+            if (err) throw err;
+            console.log("Completed!");
+});
+    </script>
+    <button type="button" id="my button" style="background-color:yellow;" onclick="addDetails()" ><strong>Add Details</strong></button> 
+    <button type="button" id="my button" style="background-color:yellow;"  onclick="checkDetails()"><strong>check Details</strong></button>
+    <p id="display"></p>
+</body>
+</html>
